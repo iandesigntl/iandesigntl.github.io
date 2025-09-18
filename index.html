@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Harian Design OU — Köögimööbli ja eritellimusmööbli tootmine</title>
+  <meta name="description" content="Harian Design OU — Eesti tootja, kes valmistab eritellimuslikku kööki, mööblit ja sisulahendusi. Tööstuslik täpsus, disainiinsenerlus ja paigaldus ühest kohast.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0e13; --paper:#0f131a; --muted:#9aa3b2; --text:#e7ecf3;
+      --brand:#5aa3ff; --brand-2:#00d2a8; --line:#1f2732; --card:#121723;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}
+    html{scroll-behavior:smooth}
+    a{color:var(--brand);text-decoration:none}
+    .wrap{max-width:1160px;margin:0 auto;padding:28px 18px}
+    header.top{display:flex;align-items:center;justify-content:space-between;padding:6px 0 10px}
+    .logo{display:flex;gap:10px;align-items:center;font-weight:800}
+    .logo i{width:24px;height:24px;border-radius:6px;background:linear-gradient(135deg,var(--brand),var(--brand-2))}
+    .nav{display:flex;gap:16px;flex-wrap:wrap}
+    .nav a{font-size:14px;color:#cbd5e1;padding:8px 12px;border:1px solid transparent;border-radius:8px}
+    .nav a:hover{border-color:#253040;background:#101623}
+    .cta{background:var(--brand);color:#06131f;border:none;border-radius:10px;padding:10px 14px;font-weight:700}
+
+    /* Hero */
+    .hero{margin-top:16px;background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,0));border:1px solid var(--line);border-radius:20px;padding:30px}
+    .hero-grid{display:grid;gap:24px}
+    @media(min-width:980px){ .hero-grid{grid-template-columns:1.1fr .9fr;align-items:center} }
+    h1{font-size:44px;line-height:1.1;margin:0 0 10px}
+    .sub{font-size:18px;color:#cbd5e1;max-width:720px}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+    .stats .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;text-align:center}
+    .stats .big{font-size:22px;font-weight:800}
+    .stats .cap{font-size:12px;color:var(--muted)}
+    .hero-img{aspect-ratio:16/11;border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+    .hero-img img{width:100%;height:100%;object-fit:cover;display:block}
+    .hero-cta{margin-top:16px;display:flex;gap:12px;flex-wrap:wrap}
+    .ghost{border:1px solid var(--line);background:transparent;color:#dde6f4;border-radius:10px;padding:10px 14px;font-weight:700}
+
+    /* Sections */
+    section{margin:34px 0}
+    .card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:22px}
+    .kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8fa1b8;margin-bottom:6px}
+    h2{font-size:28px;margin:0 0 8px}
+    p{margin:0 0 10px;line-height:1.65}
+    .grid{display:grid;gap:16px}
+    @media(min-width:900px){ .grid.cols-3{grid-template-columns:repeat(3,1fr)} .grid.cols-2{grid-template-columns:repeat(2,1fr)} }
+
+    .svc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+    .svc h3{margin:0 0 6px;font-size:18px}
+    .chip{display:inline-block;font-size:11px;color:#aab6c7;border:1px solid var(--line);border-radius:999px;padding:4px 8px;margin-bottom:8px}
+    .benefit{background:linear-gradient(180deg,rgba(90,163,255,.12),rgba(0,0,0,0));border:1px solid #203045;border-radius:14px;padding:16px}
+    .benefit h3{margin:0 0 6px;font-size:18px}
+    .process{counter-reset:step}
+    .step{position:relative;background:var(--card);border:1px dashed #2a3545;border-radius:14px;padding:16px 16px 16px 58px}
+    .step:not(:last-child){margin-bottom:10px}
+    .step:before{
+      counter-increment:step;content:counter(step);
+      position:absolute;left:12px;top:50%;transform:translateY(-50%);
+      width:36px;height:36px;border-radius:50%;display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--brand),var(--brand-2));
+      color:#001018;font-weight:900
+    }
+    .arrow{height:14px;border-left:2px dashed #2d3b50;margin:10px 0 10px 28px;opacity:.7}
+
+    /* Form */
+    form{display:grid;gap:12px}
+    .pair{display:grid;gap:12px}
+    @media(min-width:720px){ .pair{grid-template-columns:1fr 1fr} }
+    label{display:block;font-size:13px;color:#aab6c7;margin-bottom:4px}
+    input,textarea,button{font:inherit;color:var(--text)}
+    input,textarea{background:#0c1119;border:1px solid #263142;border-radius:10px;padding:12px 14px;width:100%}
+    textarea{min-height:120px;resize:vertical}
+    .success{display:none;margin-top:6px;background:rgba(0,210,168,.14);border:1px solid rgba(0,210,168,.45);color:#75f2d8;border-radius:10px;padding:10px 12px;font-weight:700}
+    .hint{font-size:12px;color:#8aa0b7}
+    footer{margin:32px 0 14px;padding:18px;border:1px dashed #2b3647;border-radius:14px;color:#cfe2fb}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- Topbar -->
+    <header class="top">
+      <div class="logo"><i></i> Harian Design</div>
+      <nav class="nav">
+        <a href="#meist">Meist</a>
+        <a href="#teenused">Teenused</a>
+        <a href="#eelised">Miks meie</a>
+        <a href="#protsess">Protsess</a>
+        <a class="cta" href="#kontakt">Küsi pakkumist</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <h1>Disainiinsenerlus, mis muudab ideed tooteks</h1>
+          <p class="sub">Harian Design OU valmistab eritellimuslikku kööki, mööblit ja institutsionaalset sisustust.
+            Me ühendame tööstusliku täpsuse CNC-liinidel, tarkvarapõhise lõikeoptimeerimise ja disainiinsenerluse,
+            et tarnida kestvaid lahendusi hotellidele, avalikele hoonetele ja kodudele.</p>
+          <div class="hero-cta">
+            <a class="cta" href="#kontakt">Arutame teie projekti</a>
+            <a class="ghost" href="#teenused">Vaata teenuseid</a>
+          </div>
+         <div class="stats">
+  <div class="box">
+    <div class="big">3000+</div>
+    <div class="cap">valminud köögikappi ja mööblimoodulit aastas</div>
+  </div>
+  <div class="box">
+    <div class="big">25 aastat</div>
+    <div class="cap">kogemust mööblitootmise ja projektide juhtimises</div>
+  </div>
+  <div class="box">
+    <div class="big">100+</div>
+    <div class="cap">avalikku ja institutsionaalset sisustusprojekti edukalt lõpetatud</div>
+  </div>
+</div>
+        </div>
+        <div class="hero-img">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600&auto=format&fit=crop" alt="Köögimööbli tootmine ja disain">
+        </div>
+      </div>
+    </section>
+
+    <!-- MEIST -->
+    <section id="meist" class="card">
+      <div class="kicker">Kes me oleme</div>
+      <h2>Tootmine, kus disain kohtub täpsusega</h2>
+      <p>Harian Design OU on Eesti mööbli- ja köögimööbli tootja, kes viib projekti ideefaasist paigalduseni. Meie tuum on disainiinsenerlus: tõlgime arhitekti kavandid tootmiskõlblikeks mudeliteks ning optimeerime detailid materjalikulu ja paigalduse järgi.</p>
+      <p>Tootmine käib CNC-lõikepinkidel, servaliinidel ja tolmukontrolliga viimistlusosakonnas. Tarkvaraliselt kasutame lõikeplaanide optimisaatorit, mis vähendab jääke ning lühendab tarneaega.</p>
+      <p>Teenindame nii lepingulisi kliente (hotellid, haiglad, koolid) kui ka disainbüroosid, kes vajavad partnerit keerukate erilahenduste tootmiseks. Kõik sõlmed dokumenteeritakse, et paigaldus kulgeks ilma üllatusteta.</p>
+      <p>Meie lähenemine on „tehases valmis“: komplekteerime furnituuri, tähistame detailid ja pakendame moodulid paigaldusjärjekorras. See vähendab objektil seismist ja hoiab eelarvet.</p>
+      <p>Töötame peamiselt tamme, kasevineeri, HPL- ja FENIX-laminaatide, komposiitkivide ning pulbervärvitud metalliga, kuid leiame tehnilise lahenduse ka haruldasematele pindadele.</p>
+    </section>
+
+    <!-- TEENUSED -->
+    <section id="teenused" class="card">
+      <div class="kicker">Mida me teeme</div>
+      <h2>Teenused, mis loovad kasutusvalmis ruumi</h2>
+      <div class="grid cols-3">
+        <div class="svc">
+          <span class="chip">Insener-disain</span>
+          <h3>Eritellimuslik köök ja kapilahendused</h3>
+          <p>Modelleerime köögid ja kapid millimeetri täpsusega, arvestades tehnikat, ventilatsiooni ja hooldatavust. </p>
+          <p>Komponenteerime furnituuri (Blum/Hettich), planeerime tõmbeteed ja pehmendusmehhanismid. </p>
+          <p>Valmistame proovimoodulid, et kinnitada ergonoomika enne seeriat.</p>
+        </div>
+        <div class="svc">
+          <span class="chip">Tootmine</span>
+          <h3>Institutsionaalne ja lepinguline mööbel</h3>
+          <p>Toodame vastupidavaid lahendusi koolidele, meditsiiniasutustele ja hotellidele, kus kasutuskoormus on suur.</p>
+          <p>Pinnad: HPL, antibakteriaalsed laminaadid, tugevdatud servad ning niiskuskindlad kandurid.</p>
+          <p>Tarne toimub märgistatud moodulitena, mis lihtsustab objektil logistikat.</p>
+        </div>
+        <div class="svc">
+          <span class="chip">Paigaldus & hooldus</span>
+          <h3>Projektijuhtimine ja garantiihooldus</h3>
+          <p>Koordineerime mõõdistuse, transpordi ja objektil tehtavad tööd nii, et teised alltöövõtjad saaksid jätkata.</p>
+          <p>Teostusjoonised ja fikseeritud sõlmed välistavad tõlgendused paigaldusel.</p>
+          <p>Garantiiperioodil teeme järelreguleerimise ja vajadusel kiire varuosavahetuse.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EELISED -->
+    <section id="eelised" class="card">
+      <div class="kicker">Miks see toimib</div>
+      <h2>Kolm eelist, mis hoiavad eelarve ja tähtaja</h2>
+      <div class="grid cols-3">
+        <div class="benefit">
+          <h3>Tark materjalilogistika</h3>
+          <p>Lõikeplaanide tarkvara vähendab jääke kuni 18% ning annab kohese hinnangulise tarneaja. See peegeldub hinnas ja kindlas graafikus.</p>
+        </div>
+        <div class="benefit">
+          <h3>„Tehases valmis“ moodulid</h3>
+          <p>Detailide märgistus, komplekteeritud furnituur ja paigaldusjärjekorra pakendamine lühendavad objekti seismist ja vähendavad vigade riski.</p>
+        </div>
+        <div class="benefit">
+          <h3>Läbipaistev dokumentatsioon</h3>
+          <p>3D-mudelid, sõlmed ja hooldusjuhendid antakse üle digitaalselt; muudatused logitakse, mistõttu saab otsuseid teha faktidega.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROTSESS -->
+    <section id="protsess" class="card">
+      <div class="kicker">Kuidas alustame</div>
+      <h2>Meie protsess kolmes samm-sammulises etapis</h2>
+      <div class="process">
+        <div class="step">
+          <h3>01 · Mõõdistus ja inseneriplaan</h3>
+          <p>Objekti mõõdistus, tehniliste piirangute kaardistus ja 3D-mudel. Kinnitame materjalid, servad, furnituuri ja tarnegraafiku.</p>
+        </div>
+        <div class="arrow"></div>
+        <div class="step">
+          <h3>02 · Tootmine ja kvaliteedikontroll</h3>
+          <p>CNC-lõiked, servamine, viimistlus. Komplekteerime moodulid ja teeme tehase eelkontrolli vastavalt kontrollnimekirjale.</p>
+        </div>
+        <div class="arrow"></div>
+        <div class="step">
+          <h3>03 · Paigaldus ja üleandmine</h3>
+          <p>Paigaldus järk-järgult, järelreguleerimine, hooldusjuhendite üleandmine ja garantiiperioodi algus.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAKT / VORM -->
+    <section id="kontakt" class="card">
+      <div class="kicker">Võtke ühendust</div>
+      <h2>Räägime teie sisustusprojektist</h2>
+      <p class="hint">Vormi fraasid: „Soovin köögi hinnapakkumist“, „Soovin lepingulist mööblit koolile/haiglale“, „Soovin mõõdistust ja nõu“.</p>
+
+      <form id="contactForm" novalidate>
+        <div class="pair">
+          <div>
+            <label for="name">Teie nimi / ettevõte</label>
+            <input id="name" name="name" placeholder="nt. Mari / Projektibüroo" required>
+          </div>
+          <div>
+            <label for="email">E-post</label>
+            <input id="email" name="email" type="email" placeholder="nt. ian@hariandesign.org" required>
+          </div>
+        </div>
+        <div class="pair">
+          <div>
+            <label for="topic">Teema</label>
+            <input id="topic" name="topic" placeholder="Eritellimusköök / institutsionaalne mööbel / paigaldus">
+          </div>
+          <div>
+            <label for="when">Aeg / tähtaeg</label>
+            <input id="when" name="when" placeholder="nt. järgmine kuu / Q4">
+          </div>
+        </div>
+        <div>
+          <label for="msg">Sõnum</label>
+          <textarea id="msg" name="msg" placeholder="Lühikirjeldus: ruumi mõõdud, materjalieelistus, ligikaudne eelarve…"></textarea>
+        </div>
+        <button class="cta" type="submit">Saada päring</button>
+        <div id="success" class="success">Aitäh! Teie sõnum on saadetud. Võtame peagi ühendust.</div>
+        <p class="hint">Saates nõustute, et töötleme teie andmeid päringu menetlemiseks.</p>
+      </form>
+    </section>
+
+    <!-- KONTAKTANDMED -->
+    <footer>
+  <strong>Harian Design OU</strong><br>
+  Aadress: Karuse tee 6, 71073 Peetrimõisa küla<br>
+  E-post: <a href="mailto:ian@hariandesign.org">ian@hariandesign.org</a><br>
+  © 2025 Kõik õigused kaitstud!
+</footer>
+  </div>
+
+  <script>
+    // Pehme vormi saatmine: kuvame kohaliku edu-teate, leht ei "hüppa".
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      let ok = true;
+      ['name','email'].forEach(id=>{
+        const el = document.getElementById(id);
+        if(!el.value.trim()){ el.style.borderColor = '#ff5a7a'; ok = false; }
+        else { el.style.borderColor = '#263142'; }
+      });
+      if(ok){
+        document.getElementById('success').style.display = 'block';
+        this.reset();
+      }
+    });
+  </script>
+</body>
+</html>
